@@ -13,7 +13,9 @@ class TestPager < Test::Unit::TestCase
 
       @config = Jekyll.configuration
       @site = Site.new(@config)
-      @posts = @site.read_posts('')
+
+      @site.read_posts('')
+      @posts = @site.posts[0..2]
     end
 
     should "calculate number of pages" do
