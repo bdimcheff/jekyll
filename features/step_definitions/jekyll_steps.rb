@@ -123,6 +123,10 @@ Then /^I should see "(.*)" in "(.*)"$/ do |text, file|
   assert_match Regexp.new(text), File.open(file).readlines.join
 end
 
+Then /^I should not see "([^\"]*)" in "([^\"]*)"$/ do |text, file|
+  assert_no_match Regexp.new(text), File.open(file).readlines.join
+end
+
 Then /^the "(.*)" file should not exist$/ do |file|
   assert !File.exists?(file)
 end
